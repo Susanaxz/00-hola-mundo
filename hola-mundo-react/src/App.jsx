@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+import TwitterFollowCard from "./TwitterFollowCard"
+//({ username, name, follow }) => {
+const App = () => {
+    const formatUserName = (username) => `@${username}`
+    return (
+        <section className="app">
+            <TwitterFollowCard formatUserName={formatUserName } username={"midudev"} name={"Miguel Ángel Durán"} />
+            <TwitterFollowCard formatUserName={formatUserName}  username={"pheralb"} name={"Pablo Hernandez"} />
+            <TwitterFollowCard formatUserName={formatUserName}  username={"susanaxz"} name={"Susana Ribera"} />
+            <TwitterFollowCard formatUserName={formatUserName}  username={"pep"} name={"Pep Gimenez"} />
+        </section>
   )
 }
+
+// aquí recibimos una prop desde TwitterFollowCard que es la función formatUserName y esta función la creamos en App.jsx
+// y la pasamos como prop a TwitterFollowCard.jsx
 
 export default App
